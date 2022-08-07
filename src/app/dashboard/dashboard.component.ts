@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  question_description: string;
 
-  ngOnInit(): void {
+  constructor() {
+    this.question_description = "This is a test description";
   }
 
+  ngOnInit(): void {
+
+  }
 }
