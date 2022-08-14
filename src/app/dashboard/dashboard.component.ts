@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MedicalDataReviewService } from '../medical-data-review.service'
 
 @Component({
   selector: 'app-dashboard',
@@ -7,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  question_description: string;
+  question$: Question;
 
-  constructor() {
-    this.question_description = "This is a test description";
+  constructor(private medicalReviewService: MedicalDataReviewService) {
+    this.medicalReviewService.getResponse().subscribe((response: any) => {
+      this.question$.description = response.fact
+    });
   }
 
   ngOnInit(): void {
